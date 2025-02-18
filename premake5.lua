@@ -2,7 +2,7 @@ project "Box2D"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "off"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputDir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
@@ -10,7 +10,7 @@ project "Box2D"
 	files
 	{
 		"src/**.h",
-		"src/**.cpp",
+		"src/**.c",
 		"include/**.h"
 	}
 
@@ -34,4 +34,4 @@ project "Box2D"
 	filter "configurations:Dist"
 		runtime "Release"
 		optimize "on"
-symbols "off"
+		symbols "off"

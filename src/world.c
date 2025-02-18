@@ -30,8 +30,9 @@
 #include <float.h>
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 
-_Static_assert( B2_MAX_WORLDS > 0, "must be 1 or more" );
+static_assert( B2_MAX_WORLDS > 0, "must be 1 or more" );
 b2World b2_worlds[B2_MAX_WORLDS];
 
 B2_ARRAY_SOURCE( b2BodyMoveEvent, b2BodyMoveEvent );
@@ -99,7 +100,7 @@ static float b2DefaultRestitutionCallback( float restitutionA, int materialA, fl
 
 b2WorldId b2CreateWorld( const b2WorldDef* def )
 {
-	_Static_assert( B2_MAX_WORLDS < UINT16_MAX, "B2_MAX_WORLDS limit exceeded" );
+	static_assert( B2_MAX_WORLDS < UINT16_MAX, "B2_MAX_WORLDS limit exceeded" );
 	B2_CHECK_DEF( def );
 
 	int worldId = B2_NULL_INDEX;
